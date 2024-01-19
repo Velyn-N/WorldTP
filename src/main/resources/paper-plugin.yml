@@ -1,0 +1,14 @@
+name: worldtp
+description: Mini-Plugin that lets you switch worlds and remembers where you last were in them
+version: '${project.version}'
+authors:
+  - Velyn
+main: de.nmadev.worldtp.WorldTP
+api-version: '1.20'
+permissions:
+  worldtp.use:
+    description: "Usage Permission (The Plugin will only affect these players)"
+  worldtp.switchworlds:
+    description: "Permission for the /switchworld Command (if activated)"
+  worldtp.admin:
+    description: "Permission for administrative functions"
