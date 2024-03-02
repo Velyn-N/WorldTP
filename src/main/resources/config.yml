@@ -1,6 +1,7 @@
 both-worlds-activated-only: true
 storage-save-interval-minutes: 5
 enable-switch-world-command: true
+keep-default-nether-portal-behaviour: true
 activated-worlds:
   - world
   - world_nether

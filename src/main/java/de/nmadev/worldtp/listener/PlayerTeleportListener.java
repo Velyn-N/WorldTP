@@ -38,15 +38,20 @@ public class PlayerTeleportListener implements Listener {
             return;
         }
 
-        handleWorldSwitch(fromLocation, toWorld, event.getPlayer());
+        handleWorldSwitch(fromLocation, toWorld, event.getPlayer(), event.getCause());
     }
 
-    private void handleWorldSwitch(Location oldLoc, World enteredWorld, Player player) {
+    private void handleWorldSwitch(Location oldLoc, World enteredWorld, Player player, PlayerTeleportEvent.TeleportCause cause) {
         boolean isOldWorldActivated = configManager.isWorldActivated(oldLoc.getWorld());
         boolean isNewWorldActivated = configManager.isWorldActivated(enteredWorld);
+        boolean isDefaultNetherPortalBehaviour = configManager.isDefaultNetherPortalBehaviour();
 
         if (!configManager.isBothWorldsActivatedOnly() || (isOldWorldActivated && isNewWorldActivated)) {
             storageManager.setLastPlayerLocation(player, oldLoc);
+        }
+
+        if (isDefaultNetherPortalBehaviour && cause == PlayerTeleportEvent.TeleportCause.NETHER_PORTAL) {
+            return;
         }
 
         if (isNewWorldActivated) {
