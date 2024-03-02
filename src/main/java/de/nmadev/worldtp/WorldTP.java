@@ -87,6 +87,8 @@ public class WorldTP extends JavaPlugin {
         createStorageSaveTask();
 
         boolean wasSwitchCommandActive = configManager.isSwitchWorldCommandActivated();
+        
+        this.reloadConfig();
         configManager.reloadConfig();
         if (wasSwitchCommandActive != configManager.isSwitchWorldCommandActivated()) {
             if (configManager.isSwitchWorldCommandActivated()) {
